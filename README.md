@@ -4,7 +4,7 @@
 ---
 ## **How to run the application?**
 ### **Method 1: Running the application online**
-[**>>> CLICK HERE TO OPEN THE APPLICATION ONLINE <<<**](https://ek-jobly.surge.sh/) 
+[**CLICK HERE TO OPEN THE APPLICATION ONLINE**](https://ek-jobly.surge.sh/) 
 - or copy-paste https://ek-jobly.surge.sh/ into your browser
 - If you need to interact with the backend, the endpoint is: https://ek-jobly.herokuapp.com/
 
