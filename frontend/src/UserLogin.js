@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
+// Custom components
+import LoadingBar from './LoadingBar';
+
 //Bootstrap
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -23,6 +26,8 @@ const UserLogin = ({ login }) => {
     const [formData, setFormData] = useState(initialState);
     // for storing and displaying errors
     const [formErrors, setFormErrors] = useState([]);
+    // for storing the loading bar display/hide
+    const [loading, setLoading] = useState(false);
 
     // creating a universal changle handler function that stored values into state
     const handleChange = e => {
@@ -45,6 +50,8 @@ const UserLogin = ({ login }) => {
     async function handleSubmit(e) {
         // preventing default behavior
         e.preventDefault();
+        // showing the loading bar while our API call runs 
+        setLoading(true);
         // calling the login function that is passed to us all the way from App
         // and sending the data from the form
         let res = await login(formData);
@@ -54,12 +61,16 @@ const UserLogin = ({ login }) => {
             // warm redirecting user to the companies page
             history.push("/companies");
         } else {
+            // turning off the loading screen
+            setLoading(false);
             // if the login process is not successfull, loggin into console
             console.log("UserLogin > handleSubmith > else > ", res[0])
             // and setting the formErrors state so our alert can display
             setFormErrors(res[0]);
         }
     }
+
+    if(loading) {return  < LoadingBar />}
 
 
     return (<>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
+// Custom components
+import LoadingBar from './LoadingBar';
+
 //Bootstrap
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +26,8 @@ const UserRegister = ({ signup }) => {
 
     // creating state to store form data and also setter function
     const [formData, setFormData] = useState(initialState);
-
+    // for storing the loading bar display/hide
+    const [loading, setLoading] = useState(false);
 
     // creating a universal changle handler function that stored values into state
     const handleChange = e => {
@@ -46,6 +50,8 @@ const UserRegister = ({ signup }) => {
     async function handleSubmit(e) {
         // preventing default behavior
         e.preventDefault();
+        // showing the loading bar while our API call runs 
+        setLoading(true);
         // calling the signup function that is passed to us all the way from App
         // and sending the data from the form
         let res = await signup(formData);
@@ -55,6 +61,8 @@ const UserRegister = ({ signup }) => {
             history.push("/companies");
         }
     }
+
+    if(loading) {return  < LoadingBar />}
 
     return (<>
         <Container>

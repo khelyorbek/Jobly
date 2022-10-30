@@ -6,6 +6,7 @@ import GlobalContext from './GlobalContext';
 
 // custom components
 import JoblyApi from './api';
+import LoadingBar from './LoadingBar';
 
 //Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -21,7 +22,8 @@ const UserProfile = ({ login }) => {
     const { currentUser, setCurrentUser } = useContext(GlobalContext);
     // using a an array in state to keep track of errors/alerts
     const [alertMsg, setAlertMsg] = useState([]);
-
+    // for storing the loading bar display/hide
+    const [loading, setLoading] = useState(false);
 
     // creating an initial state so we can initialize the form and clean it afterwards if necessary
     const initialState = {
@@ -54,6 +56,9 @@ const UserProfile = ({ login }) => {
         // preventing default behavior
         e.preventDefault();
 
+        // showing the loading bar while our API call runs 
+        setLoading(true);
+
         // creting a vairable to receive and store the username and password
         const loginData = {
             password: formData.password,
@@ -67,6 +72,9 @@ const UserProfile = ({ login }) => {
 
         // Once the LOGIN process is done 
         if (resLogin === "complete") {
+            // turning off the loading screen
+            setLoading(false);
+
             // show an alert/message to the user
             setAlertMsg("Profile update successful!");
 
@@ -79,6 +87,8 @@ const UserProfile = ({ login }) => {
 
         // if the LOGIN process is not successsful
         } else {
+            // turning off the loading screen
+            setLoading(false);
             // logging the error
             console.log("UserLogin > handleSubmith > else > ", resLogin[0])
             // showing an alert to the user
