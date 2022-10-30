@@ -30,12 +30,15 @@ const UserRegister = ({ signup }) => {
         // taking the target of the event and destructuing the name attribute and the value of the input
         const { name, value } = e.target;
 
+        // if the form input is the username, sending it in all lowercase to make sure username is case in-sensitive
+        let valueFormatted = name === 'username' ? value.toLowerCase() : value;
+
         // setting the new value of the state
         setFormData(data => ({
             // to be the current value of the state
             ...data,
             // and whenever the new value is (Example: nameOfInput: valueOfInput)
-            [name]: value
+            [name]: valueFormatted
         }))
     }
 
