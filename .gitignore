@@ -10,4 +10,3 @@ secrets.py
 
 ########## NODEJS / EXPRESS ##########
 node_modules/
-build/
