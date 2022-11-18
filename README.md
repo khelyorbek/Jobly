@@ -4,9 +4,9 @@
 ---
 ## **How to run the application?**
 ### **Method 1: Running the application online**
-[**CLICK HERE TO OPEN THE APPLICATION ONLINE**](https://ek-jobly.surge.sh/) 
-- or copy-paste https://ek-jobly.surge.sh/ into your browser
-- If you need to interact with the backend, the endpoint is: https://ek-jobly.herokuapp.com/
+[**CLICK HERE TO OPEN THE APPLICATION ONLINE**](https://jobly.elyorbek.com/) 
+- or copy-paste https://jobly.elyorbek.com/ into your browser
+- If you need to interact with the backend, the endpoint is: https://jobly-backend.elyorbek.com/
 
 
 ### **Method 2: Running the application locally**
