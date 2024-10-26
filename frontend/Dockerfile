@@ -10,7 +10,7 @@ RUN npm run build
 
 RUN npm install -g serve
 
-COPY --from=builder /app/build/index.html /app/build/200.html
+COPY --from=build /app/build/index.html /app/build/200.html
 
 ARG PORT
 EXPOSE $PORT
