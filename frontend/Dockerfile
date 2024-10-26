@@ -8,11 +8,11 @@ RUN npm install
 
 RUN npm run build
 
-ARG PORT
-EXPOSE $PORT
-
 RUN npm install -g serve
 
-COPY build/index.html build/200.html
+COPY --from=builder /app/build/index.html /app/build/200.html
+
+ARG PORT
+EXPOSE $PORT
 
 CMD ["serve", "-s", "build", "-p", "$PORT"]
