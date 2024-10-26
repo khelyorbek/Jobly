@@ -10,6 +10,8 @@ RUN npm run build
 
 RUN npm install -g serve
 
+FROM build
+
 COPY /build/index.html /build/200.html
 
 ARG PORT
