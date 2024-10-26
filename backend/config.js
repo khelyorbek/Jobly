@@ -8,14 +8,14 @@ require("colors");
 const SECRET_KEY = process.env.SECRET_KEY || "secret-dev";
 
 // updated port value so that I can use it in my VPS
-const PORT = 3006;
+const PORT = process.env.PORT || 3006;
 
 // Use dev database, testing database, or via env var, production database
 // updated the database url so we can use it on VPS
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
-      ? "postgresql://test:test@localhost/jobly_test"
-      : `${process.env.DATABASE_URL}/jobly` || "postgresql://test:test@localhost/jobly";
+    ? "postgresql://test:test@localhost/jobly_test"
+    : `${process.env.DATABASE_URL}`;
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
