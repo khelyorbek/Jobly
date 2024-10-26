@@ -12,9 +12,9 @@ RUN npm install -g serve
 
 FROM build1 as build2
 
-WORKDIR /build
+WORKDIR /app/build
 
-COPY index.html 200.html
+COPY --from=build1 index.html 200.html
 
 ARG PORT
 EXPOSE $PORT
