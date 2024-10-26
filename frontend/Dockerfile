@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm run build
 
-COPY dist/index.html dist/200.html
+COPY build/index.html build/200.html
 
 FROM nginx:1.27-alpine
 
