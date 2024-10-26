@@ -13,6 +13,6 @@ EXPOSE $PORT
 
 RUN npm install -g serve
 
-COPY --from=build build/index.html build/200.html
+COPY build/index.html build/200.html
 
-CMD ["serve", "-s", "build", "-p", [$PORT]]
+CMD ["serve", "-s", "build", "-p", "$PORT"]
