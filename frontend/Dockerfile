@@ -14,7 +14,7 @@ FROM build1 as build2
 
 COPY --from=build1 /app/build/index.html /app/build/200.html
 
-ARG PORT
-EXPOSE $PORT
+EXPOSE 80
+EXPOSE 443
 
-CMD ["serve", "-s", "build", "-p", "$PORT"]
+CMD ["serve", "-s", "/app/build", "-p", "80"]
