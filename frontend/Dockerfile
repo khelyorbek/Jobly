@@ -11,4 +11,4 @@ RUN npm run build
 ARG PORT
 EXPOSE $PORT
 
-CMD ["cp", "/build/index.html", "/build/200.html", "&&", "serve", "-s", "build"]
+CMD ["cp", "build/index.html", "build/200.html;", "serve", "-s", "build"]
