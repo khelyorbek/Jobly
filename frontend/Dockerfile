@@ -8,12 +8,7 @@ RUN npm install
 
 RUN npm run build
 
-COPY build/index.html build/200.html
-
-FROM nginx:1.27-alpine
-
 ARG PORT
 EXPOSE $PORT
 
-COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /usr/app/dist /usr/share/nginx/html
+CMD ["cp", "/build/index.html", "/build/200.html", "&&", "serve", "-s", "build"]
