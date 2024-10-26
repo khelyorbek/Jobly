@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = "api.jobly.elyorbek.com";
 
 /** API Class.
  *
