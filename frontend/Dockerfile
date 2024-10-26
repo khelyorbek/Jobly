@@ -1,4 +1,4 @@
-FROM node:20-alpine AS build
+FROM node:20-alpine AS build1
 
 WORKDIR /app
 
@@ -10,9 +10,9 @@ RUN npm run build
 
 RUN npm install -g serve
 
-FROM build
+FROM build1 as build2
 
-WORKDIR /app/build
+WORKDIR /build
 
 COPY index.html 200.html
 
